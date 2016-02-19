@@ -11,15 +11,19 @@ package cse360assign3;
  */
 public class Calculator {
 
+	//this will be the total for the calculator
 	private int total;
+	
+	//this is the string for the history of operations performed. It starts at 0
+	private String history = "0";
 	
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
 	}
 	
 	/**
-	 * gets the total value
-	 * @return
+	 * returns the total from the calculator
+	 * @return total
 	 */
 	public int getTotal () {
 		return total;
@@ -31,6 +35,7 @@ public class Calculator {
 	 */
 	public void add (int value) {
 		total += value;
+		history = history + " + " + value;		//append to history string
 	}
 	
 	/**
@@ -39,7 +44,7 @@ public class Calculator {
 	 */
 	public void subtract (int value) {
 		total -= value;
-		
+		history = history + " - " + value;		//append to history string
 	}
 	
 	/**
@@ -48,28 +53,28 @@ public class Calculator {
 	 */
 	public void multiply (int value) {
 		total *= value;
-		
+		history = history + " * " + value;		//append to history string
 	}
 	
 	/**
 	 * divides a given value from the total
 	 * @param value
 	 */
-	public void divide (int value) {
-		if (value == 0){
+	public void divide (int value) {			//append to history string
+		if (value == 0) {						//if divide by 0 total -> 0
 			total = 0;
 		}
-		else{
+		else{						
 			total /= value;
 		}
-		
+		history = history + " / " + value;		//append to history string
 	}
 	
 	/**
 	 * returns a string of the history of calculations performed
-	 * @return
+	 * @return history
 	 */
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
